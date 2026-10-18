@@ -1,5 +1,7 @@
 # Third-party components and literary sources
 
+The MIT licence in LICENSE applies to application code. Literary selections and third-party runtime resources retain their separately documented rights.
+
 The application code is MIT licensed. The following materials retain their own
 licenses or public-domain status.
 
