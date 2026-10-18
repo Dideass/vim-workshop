@@ -12,7 +12,14 @@ try{for(const channel of process.env.BROWSERS?.split(',')||['chrome','msedge']){
  try{
   const page=await browser.newPage({viewport:{width:1440,height:1000}});
   await page.addInitScript(()=>{
-   if(window!==parent)return;
+   if(window!==parent){
+    window.testInputBlocked=false;
+    window.addEventListener('message',event=>{
+     if(event.source===parent&&event.origin===location.origin&&event.data?.type==='block-input')
+      queueMicrotask(()=>window.testInputBlocked=!!event.data.blocked);
+    });
+    return;
+   }
    if(!localStorage.getItem('vim-workshop.progress.v3'))localStorage.setItem('vim-workshop.progress.v3',JSON.stringify({version:3,completed:Object.fromEntries(Array.from({length:33},(_,i)=>[i+1,{assisted:false,keys:1,completedAt:'2026-10-18T00:00:00.000Z'}])),drafts:{},seenSolutions:[]}));
    window.addEventListener('message',event=>{if(event.data?.channel==='between-lines'&&event.data.type==='snapshot'){window.testSnapshot=event.data.snapshot;window.testToken=event.data.token;}});
   });
@@ -72,6 +79,9 @@ try{for(const channel of process.env.BROWSERS?.split(',')||['chrome','msedge']){
     await page.waitForFunction(()=>{
      const frame=document.querySelector('iframe');
      if(document.querySelector('.hint-dialog').open)return false;
+     // Closing the DOM dialog precedes its asynchronous iframe unblock message.
+     // A synthetic focus() must not bypass that message and drop early keys.
+     if(frame?.contentWindow?.testInputBlocked!==false)return false;
      frame?.contentDocument?.getElementById('input')?.focus();
      return document.activeElement===frame&&frame.contentDocument.activeElement?.id==='input';
     });
