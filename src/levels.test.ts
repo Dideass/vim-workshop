@@ -2,6 +2,13 @@ import {it,expect} from 'vitest';
 import {levels,getVariant} from './levels';
 import {budgetFor,judge} from './rules';
 import {actionLabels} from './practice';
+it('publishes window workflows that avoid the browser-reserved close-tab shortcut',()=>{
+ for(const id of [19,23])for(const solution of levels[id-1].solutions){
+  expect(solution).not.toContain('<C-w>');
+  expect(solution).toMatch(/:winc(?:md)? w<CR>/);
+ }
+ expect(actionLabels['window-switch']).toContain(':winc w');
+});
 it('ships 33 distinct, attributed real-source challenges with progressively longer literature',()=>{
  expect(levels).toHaveLength(33);expect(levels.at(-1)?.source.author).toBe('Jorge Luis Borges');
  expect(levels.filter(l=>l.category==='lyrics')).toHaveLength(8);

@@ -33,7 +33,7 @@ export const chinese: Record<string,string> = {
   "Line selection (V)":"整行选择（V）",
   "Outdent (< motion / << / Visual <)":"减少缩进（< + 移动 / << / 可视模式 <）",
   "Split reference.txt (:sp / :vs)":"分屏打开 reference.txt（:sp / :vs）",
-  "Switch windows (e.g. Ctrl+w w)":"切换窗口（如 Ctrl+w w）",
+  "Switch windows (:winc w)":"切换窗口（:winc w）",
   "Block selection (Ctrl+v)":"矩形选择（Ctrl+v）",
   "Named-register yank (e.g. \"a)":"复制到具名寄存器（如 \"a）",
   "Insert register (Ctrl+r in Insert mode)":"插入模式读取寄存器（Ctrl+r）",

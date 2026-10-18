@@ -7,14 +7,14 @@ uses Vim 9.1. No keybinding emulator or silent fallback is used.
 | Check | Result | Reproduction |
 |---|---|---|
 | TypeScript and static Vite build | Passed | `npm run build` |
-| Rules, budgets, progress, source coverage and localization | 21 passed | `npm test` |
-| Accepted reference sequences in native Vim | 79 passed: 48 references and 31 independent alternatives, including terminal confirmation | `npm run test:native -- --alternatives` |
+| Rules, budgets, progress, source coverage and localization | 22 passed | `npm test` |
+| Accepted reference sequences in native Vim | 80 passed: 48 references and 32 independent alternatives, including terminal confirmation | `npm run test:native -- --alternatives` |
 | Complete user-provided sentences, saved drafts, bilingual attribution and clean restart | Passed in Chrome and Edge | `npm run test:sentences` |
 | All 33 main levels and their in-budget alternatives | Passed in Chrome and Edge | `npm run test:browser` |
 | Unique current hint route in both languages, all 33 levels, practice evidence and explicit alternative-method feedback (levels 7–9) | Passed in Chrome and Edge | `npm run test:course` |
-| Alternative physical-key routes for all 22 practice levels, including direct %d% and d% | 33 cases in Chrome and Edge; budget/input failures remain distinct | `npm run test:practice` |
+| Alternative physical-key routes for all 22 practice levels, including direct %d% and d% | 34 cases in Chrome and Edge; budget/input failures remain distinct | `npm run test:practice` |
 | Caps/Num/Scroll Lock, case, free modifier keys, genuine Tab/Ctrl+T and remapped Escape | Passed in Chrome and Edge | `npm run test:lock-keys` |
-| Ex parser ranges, modifiers, delimiters, escaping and false positives | 15 passed in native Vim | `node scripts/practice-parser-check.mjs` |
+| Ex parser ranges, modifiers, delimiters, escaping and false positives | 16 passed in native Vim | `node scripts/practice-parser-check.mjs` |
 | Bilingual tasks, hints and unchanged running buffers | Passed in both browsers | `npm run test:i18n` |
 | Modal hint navigation, input lock and EOF tildes | Passed in both browsers | `npm run test:hints` |
 | Persistent 33-step completion card, rainbow finale, no final variant | Passed in both browsers | `npm run test:completion` |
@@ -148,3 +148,18 @@ runtime listener without preventing their browser/OS default. Real Tab and
 Ctrl+T still edit and count normally; a remapped Caps Lock arriving as Escape
 still works. The release version changes the runtime URL so existing visits
 load the fixed adapter. The progress schema remains v3.
+
+## Browser-reserved window shortcut (0.4.5)
+
+Ctrl+W can close the browser tab before the page receives a cancellable event.
+Headless/CDP key replay does not prove that a trusted browser shortcut is safe.
+Levels 19 and 23 now publish native `:winc w` window switching instead; Rules,
+both hint languages and Field notes agree. `:wincmd w` and native Ctrl+W forms
+remain accepted when delivered to Vim. Content and practice goals are unchanged.
+Budgets follow the existing ceil(shortest-reference × 1.1) calculation: level 19
+is 59 keys and level 23 is 37 keys. Focused native Vim and Chrome/Edge replays
+cover the safe help/split workflows and their action evidence. Previous progress
+remains valid; there is no global keyboard capture or close-tab confirmation trap.
+
+Chromium documents reserved browser shortcuts at
+https://github.com/chromium/chromium/blob/main/docs/ui/learn/keyboard_shortcuts.md.

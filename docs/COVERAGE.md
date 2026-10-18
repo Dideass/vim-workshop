@@ -24,11 +24,11 @@
 | 16 | 前后翻页检查诗篇，再把移到全文末尾的开篇行放回顶部，最后保存。 | Ctrl+f、Ctrl+b 前后翻页，G、gg 到达两端。可查 :help CTRL-F 和 :help G。 | Page forward (Ctrl+f); Page backward (Ctrl+b) | 11 |
 | 17 | 去掉 Ulysses 后面的两处 @；用当前单词搜索追踪姓名，然后保存。 | *、# 搜索当前完整单词，g*、g# 不要求单词边界；n 继续搜索，N 反向。可查 :help star 和 :help gstar。 | Current-word search (* / # / g* / g#) | 25 |
 | 18 | 将两处 wizh 修复为 wish，用 . 重复第一次修改；保留其余内容并保存。 | 点号重复上次修改，; 重复行内字符查找。可查 :help . 和 :help ;。 | Repeat a change (.) | 10 |
-| 19 | 用双引号文本对象将问题恢复为 "What's happened to me?"；在 Vim 内打开一次 :help，返回正文后保存。 | 帮助会打开窗口，Ctrl+w w 返回正文；ci" 仅修改引号内部。可查 :help iquote。 | Open Vim help (:help / :h); Double-quote object (i" / a") | 52 |
+| 19 | 用双引号文本对象将问题恢复为 "What's happened to me?"；在 Vim 内打开一次 :help，返回正文后保存。 | 帮助会打开窗口；用 :winc w 返回正文，避免 Ctrl+w 关闭浏览器标签页；ci" 仅修改引号内部。可查 :help iquote。 | Open Vim help (:help / :h); Double-quote object (i" / a") | 59 |
 | 20 | 将 i 修复为 I；设置位置标记并按整行选择，去掉第 5–39 行的边栏，然后保存。 | m 设置标记，V 按整行选择；标记位置也可限定范围。可查 :help mark 和 :help V。 | Set a mark (m + letter); Line selection (V) | 24 |
 | 21 | 将四个片段合并为一行，单词间保留一个空格，然后保存。 | J 用空格连接行，可以带数字一次合并多行。可查 :help J。 | 内容与预算 | 6 |
 | 22 | 将前五行的缩进移回左边界；缩进宽度为 4，使用减少缩进操作后保存。 | < 加移动范围减少缩进；<< 按整行处理，可视选区也接受 <。可查 :help <。 | Outdent (< motion / << / Visual <) | 7 |
-| 23 | 从另一个窗口中的 reference.txt 取回完整句子；复制后切回本文件，替换残缺行并保存。 | :sp、:vs 打开分屏；Ctrl+w w、Ctrl+w Ctrl+w 和 :wincmd w 均可切换窗口，用 yy 与 Vp 传递整行。可查 :help window-move-cursor。 | Split reference.txt (:sp / :vs); Switch windows (e.g. Ctrl+w w); Linewise yank (e.g. yy) | 30 |
+| 23 | 从另一个窗口中的 reference.txt 取回完整句子；复制后切回本文件，替换残缺行并保存。 | :sp、:vs 打开分屏；输入 :winc w 并回车切换窗口，它是 :wincmd w 的简写。Ctrl+w 可能关闭浏览器标签页。用 yy 与 Vp 传递整行，可查 :help window-move-cursor。 | Split reference.txt (:sp / :vs); Switch windows (:winc w); Linewise yank (e.g. yy) | 37 |
 | 24 | 用 Ctrl+v 矩形选择删除每行最左侧四列的 >> 边栏（包括空白段落行），保留正文并保存。 | Ctrl+v 选择矩形，用 G 扩展，再删除选中的列。可查 :help blockwise-visual。 | Block selection (Ctrl+v) | 9 |
 | 25 | 参照前文将 @@@ 与 ### 恢复为 Alexandrovna。先复制到具名寄存器，再在插入模式用 Ctrl+r 读取寄存器，最后保存。 | 具名寄存器可保留副本，插入模式下 Ctrl+r 插入寄存器内容。可查 :help registers 和 :help i_CTRL-R。 | Named-register yank (e.g. "a); Insert register (Ctrl+r in Insert mode) | 38 |
 | 26 | 去掉各行外侧的 > 与 <；录制可靠的逐行修复，再回放宏处理全文，最后保存。 | q 录制宏，@ 回放；让每一行开始时的光标位置都可靠。可查 :help q。 | Record a macro (q + register); Replay a macro (@ + register) | 20 |
@@ -46,7 +46,7 @@
 - 定位与搜索：h j k l、w / e / b、0 / $、gg / G、数字行号、f / ;、% 、Ctrl+f / Ctrl+b、* / # / n / N。
 - 删除、复制和寄存器：x / dd / D、yy / p / P、"_dd、"0P、具名寄存器、插入模式 Ctrl+r。
 - 选择与结构：v / V / Ctrl+v、计数操作、<< / <、配对与引号文本对象、位置标记、J、gq。
-- 工作流：u / Ctrl+r、点号重复、q / @ 宏、:help、:vsplit、Ctrl+w w、多缓冲区文本传递。
+- 工作流：u / Ctrl+r、点号重复、q / @ 宏、:help、:vsplit、:winc w、多缓冲区文本传递。
 - Ex 与批量处理：替换确认 y / a、:global / :normal、:vglobal、范围、正则捕获和反向引用、数字排序、单词边界和综合修复。
 
 此表区分明确练习与 Vim 本身支持的能力；不声称通关一次就覆盖所有 Vim 功能。终端启动、多项目目录、任意文件读写以及所有 Vim 选项不假装由静态网页训练完成。

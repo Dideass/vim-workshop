@@ -19,7 +19,7 @@ export const actionLabels:Record<string,string>={
   "visual-line": "Line selection (V)",
   "outdent": "Outdent (< motion / << / Visual <)",
   "reference-buffer": "Split reference.txt (:sp / :vs)",
-  "window-switch": "Switch windows (e.g. Ctrl+w w)",
+  "window-switch": "Switch windows (:winc w)",
   "visual-block": "Block selection (Ctrl+v)",
   "named-register": "Named-register yank (e.g. \"a)",
   "insert-register": "Insert register (Ctrl+r in Insert mode)",

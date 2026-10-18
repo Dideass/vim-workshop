@@ -1178,9 +1178,9 @@ export const courseData = [
     },
     "budget": true,
     "category": "literature",
-    "skills": "Help opens a window; Ctrl+w w returns to the text. ci\" changes only quoted contents. See :help iquote.",
+    "skills": "Help opens a window; :winc w returns to the text without using the browser-reserved Ctrl+w shortcut. ci\" changes only quoted contents. See :help iquote.",
     "solutions": [
-      ":h iquote<CR><C-w>w/????<CR>ci\"What's happened to me?<Esc>:w<CR>"
+      ":h iquote<CR>:winc w<CR>/????<CR>ci\"What's happened to me?<Esc>:w<CR>"
     ],
     "source": {
       "author": "Franz Kafka",
@@ -1196,14 +1196,14 @@ export const courseData = [
     },
     "hints": [
       "Open :help inside Vim, return to the text, and edit using i\" or a\". The website’s Field notes panel is not the Vim help window.",
-      "Help opens a window; Ctrl+w w returns to the text. ci\" changes only quoted contents. See :help iquote."
+      "Help opens a window; :winc w returns to the text without using the browser-reserved Ctrl+w shortcut. ci\" changes only quoted contents. See :help iquote."
     ],
     "zh": {
       "title": "两类损坏",
       "task": "用双引号文本对象将问题恢复为 \"What's happened to me?\"；在 Vim 内打开一次 :help，返回正文后保存。",
       "hints": [
         "在 Vim 内打开 :help，返回正文后用 i\" 或 a\" 文本对象修改；网页的操作手册不算 Vim 帮助窗口。",
-        "帮助会打开窗口，Ctrl+w w 返回正文；ci\" 仅修改引号内部。可查 :help iquote。"
+        "帮助会打开窗口；用 :winc w 返回正文，避免 Ctrl+w 关闭浏览器标签页；ci\" 仅修改引号内部。可查 :help iquote。"
       ],
       "source": {
         "author": "Franz Kafka",
@@ -1439,9 +1439,9 @@ export const courseData = [
     },
     "budget": true,
     "category": "lyrics",
-    "skills": ":sp or :vs opens a split. Ctrl+w w, Ctrl+w Ctrl+w, and :wincmd w switch windows; yy and Vp transfer a line. See :help window-move-cursor.",
+    "skills": ":sp or :vs opens a split. Type :winc w and press Enter to switch windows; it abbreviates :wincmd w. Ctrl+w may close the browser tab. Use yy and Vp to transfer a line. See :help window-move-cursor.",
     "solutions": [
-      ":vs reference.txt<CR>yy<C-w>wVp:w<CR>"
+      ":vs reference.txt<CR>yy:winc w<CR>Vp:w<CR>"
     ],
     "source": {
       "author": "Radiohead",
@@ -1456,15 +1456,15 @@ export const courseData = [
       "rights": "quotation"
     },
     "hints": [
-      "Open reference.txt in a Vim split, yank a whole line, and switch windows with Ctrl+w. Clicking another window is not the keyboard-switch action.",
-      ":sp or :vs opens a split. Ctrl+w w, Ctrl+w Ctrl+w, and :wincmd w switch windows; yy and Vp transfer a line. See :help window-move-cursor."
+      "Open reference.txt in a Vim split, yank a whole line, then switch back with :winc w followed by Enter. Clicking another window is not the keyboard-switch action.",
+      ":sp or :vs opens a split. Type :winc w and press Enter to switch windows; it abbreviates :wincmd w. Ctrl+w may close the browser tab. Use yy and Vp to transfer a line. See :help window-move-cursor."
     ],
     "zh": {
       "title": "没有意外",
       "task": "从另一个窗口中的 reference.txt 取回完整句子；复制后切回本文件，替换残缺行并保存。",
       "hints": [
-        "在 Vim 中分屏打开 reference.txt，按整行复制，再用 Ctrl+w 切换窗口；鼠标点击窗口不算键盘切换操作。",
-        ":sp、:vs 打开分屏；Ctrl+w w、Ctrl+w Ctrl+w 和 :wincmd w 均可切换窗口，用 yy 与 Vp 传递整行。可查 :help window-move-cursor。"
+        "在 Vim 中分屏打开 reference.txt，按整行复制，再输入 :winc w 并回车切换窗口；鼠标点击窗口不算键盘切换操作。",
+        ":sp、:vs 打开分屏；输入 :winc w 并回车切换窗口，它是 :wincmd w 的简写。Ctrl+w 可能关闭浏览器标签页。用 yy 与 Vp 传递整行，可查 :help window-move-cursor。"
       ],
       "source": {
         "author": "Radiohead",

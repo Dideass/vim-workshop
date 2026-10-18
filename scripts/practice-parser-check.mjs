@@ -18,6 +18,7 @@ const cases=[
  ['%s/foo/bar/g " c in a comment',[]],
  ['echo "g/foo/ and s/foo/bar/gc"',[]],
  ['wincmd w',['window-switch']],
+ ['winc w',['window-switch']],
  ['wincmd s',[]]
 ];
 await mkdir('test-results/parser',{recursive:true});
