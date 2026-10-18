@@ -34,10 +34,10 @@
 You get a damaged passage, a goal and a few rules. Work out how to repair it.
 Inspired by [Bandit](https://overthewire.org/wargames/bandit/), the workshop gives you a reason to look up a command and try it, instead of handing you another command to memorize.
 
-- **Real Vim.** Motions, text objects, registers, macros and `:help` run in Vim itself, compiled to WebAssembly.
-- **A growing challenge.** Start with a missing word; move into selections, windows and edits across hundreds of lines. The final ten levels go further. Borges closes the workshop.
+- **Real Vim.** Motions, text objects, registers and macros run in Vim itself, compiled to WebAssembly.
+- **A growing challenge.** Start with a missing word; move into selections, windows and edits across hundreds of lines.
 - **Room to find your route.** Public rules and key budgets shape each problem. Valid alternatives count; the hint is one possible route.
-- **Practice without pressure.** Explore freely, restart cleanly, or open three stages of hints. No timer. No lives. A small pixel celebration when the page is repaired.
+- **Practice without pressure.** Explore freely, restart cleanly, or open three stages of hints. No timer. No lives.
 
 **25 literary passages · 8 lyric interludes · English / 中文 interface**  
 The editing texts stay in English. Authors, editions and sources live in *Behind the text*.
