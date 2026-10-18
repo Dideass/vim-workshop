@@ -23,7 +23,12 @@ try{
    assert(await page.locator('.pixel-wordmark rect').count()>80);
    const font=await page.evaluate(()=>getComputedStyle(document.documentElement).fontFamily);assert(font.startsWith('Consolas'));
    if(process.platform==='win32')assert.match(await input().evaluate(e=>getComputedStyle(e).fontFamily),/Consolas/);
-   const border=await page.locator('.editor-shell').evaluate(e=>({width:getComputedStyle(e).borderTopWidth,color:getComputedStyle(e).borderTopColor}));assert.equal(border.width,'2px');assert.match(border.color,/177|146/);
+   const border=await page.locator('.editor-shell').evaluate(e=>({width:getComputedStyle(e).borderTopWidth,color:getComputedStyle(e).borderTopColor,scale:Number(getComputedStyle(document.documentElement).zoom),dpr:devicePixelRatio}));
+   // Chromium versions snap scaled borders to device pixels differently.
+   // Check the visible border within one device pixel of its 2px CSS design.
+   const physicalBorder=parseFloat(border.width)*border.scale*border.dpr;
+   assert(physicalBorder>=1&&Math.abs(physicalBorder-2*border.scale*border.dpr)<1);
+   assert.match(border.color,/177|146/);
    const editor=await page.locator('.editor-shell').boundingBox();const hint=await page.locator('.hint-button').boundingBox();assert(hint.y<editor.y);
    await page.screenshot({path:`test-results/${channel}-workshop-en.png`});
    const initial=await page.evaluate(()=>window.testSnapshot.text);
