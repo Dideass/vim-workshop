@@ -45,6 +45,11 @@ development and the public deployment. Both produced the same element bounds:
 No deployment-specific UI scaling was found. When comparing screenshots, keep
 the browser's per-site zoom equal between localhost and GitHub Pages.
 
+The subsequent compact-layout revision sets the application's default scale to
+80%. Viewport-based heights and widths compensate for that scale so Vim and
+overlays continue to use the available screen. The desktop/mobile layout suite
+and Chrome/Edge modal-hint/input checks passed after this change.
+
 Official matching Vim 8.2.0055 English help (139 local files and tags) is now
 bundled; the npm runtime did not include help text. The help-window and
 reference-buffer exercises use actual Vim windows. Native confirmation replay
