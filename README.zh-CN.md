@@ -5,12 +5,12 @@
 <h1 align="center">VIM WorkShop</h1>
 
 <p align="center">
-  <strong>在任务中学习 Vim 。</strong><br>
-  33 关 Vim 编辑挑战，取材于文学与歌词。
+  <strong>在任务中学习 Vim</strong><br>
+  33 关取材于文学与歌词的 Vim 编辑挑战。
 </p>
 
 <p align="center">
-  <a href="https://dideass.github.io/vim-workshop/"><strong>开始挑战</strong></a>
+  <a href="https://dideass.github.io/vim-workshop/"><strong>开始挑战 →</strong></a>
   &nbsp; · &nbsp; <a href="README.md">English</a> / <strong>简体中文</strong>
   &nbsp; · &nbsp; <a href="docs/DEVELOPMENT.md">开发与部署</a>
 </p>
@@ -31,7 +31,7 @@
 
 ## 通过任务学习 Vim
 
-VIM WorkShop 借鉴了 [Bandit](https://overthewire.org/wargames/bandit/) 的思路：每关给你一段需要修改的文字以及明确的目标与规则。你可以先动手尝试，遇到困难再查资料、看提示，找到合适的 Vim 操作。
+VIM WorkShop 借鉴了 [Bandit](https://overthewire.org/wargames/bandit/) 的思路：每关给你一段需要修改的文字以及明确的目标与规则。你可以先动手尝试，遇到困难再查资料、看提示，找到合适的 Vim 操作解决问题。
 
 - **真正的 Vim。** 光标移动、文本对象、寄存器和宏都由编译为 WebAssembly 的 Vim 执行。
 - **从入门到进阶。** 从补回一个词开始，逐步练习选区、分屏和数百行文本的编辑。
@@ -45,7 +45,7 @@ VIM WorkShop 借鉴了 [Bandit](https://overthewire.org/wargames/bandit/) 的思
 
 [**在线体验**](https://dideass.github.io/vim-workshop/) 
 
-无需注册或安装。进度保存在浏览器中，下次打开可以继续；也支持导出、导入 JSON 备份，方便更换设备。
+无需注册或安装。进度保存在浏览器中，下次打开即可继续；也支持导出、导入 JSON 备份，方便更换设备。
 
 如需本地运行，推荐使用 Node.js 24：
 
