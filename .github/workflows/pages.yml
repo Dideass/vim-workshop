@@ -33,6 +33,9 @@ jobs:
       - run: npm run test:practice
         env:
           BROWSERS: chromium
+      - run: npm run test:lock-keys
+        env:
+          BROWSERS: chromium
       - run: npm run test:course
         env:
           BROWSERS: chromium

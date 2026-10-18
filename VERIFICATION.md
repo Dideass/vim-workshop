@@ -13,6 +13,7 @@ uses Vim 9.1. No keybinding emulator or silent fallback is used.
 | All 33 main levels and their in-budget alternatives | Passed in Chrome and Edge | `npm run test:browser` |
 | Unique current hint route in both languages, all 33 levels, practice evidence and explicit alternative-method feedback (levels 7–9) | Passed in Chrome and Edge | `npm run test:course` |
 | Alternative physical-key routes for all 22 practice levels, including direct %d% and d% | 33 cases in Chrome and Edge; budget/input failures remain distinct | `npm run test:practice` |
+| Caps/Num/Scroll Lock, case, free modifier keys, genuine Tab/Ctrl+T and remapped Escape | Passed in Chrome and Edge | `npm run test:lock-keys` |
 | Ex parser ranges, modifiers, delimiters, escaping and false positives | 15 passed in native Vim | `node scripts/practice-parser-check.mjs` |
 | Bilingual tasks, hints and unchanged running buffers | Passed in both browsers | `npm run test:i18n` |
 | Modal hint navigation, input lock and EOF tildes | Passed in both browsers | `npm run test:hints` |
@@ -137,3 +138,13 @@ The Pages bootstrap now waits for service-worker control before starting Vim. A
 controllerchange listener recovers a missed registration reload callback, with a
 session guard against reload loops. This avoids starting the editor before
 SharedArrayBuffer is available on a first visit.
+
+## Lock-key input fix (0.4.4)
+
+The Caps Lock regression was reproduced in Chrome and Edge: the event was free
+in the counter but still reached vim.wasm, where it could indent the Insert-mode
+buffer with a Tab. Standalone modifier and lock events now stop before the
+runtime listener without preventing their browser/OS default. Real Tab and
+Ctrl+T still edit and count normally; a remapped Caps Lock arriving as Escape
+still works. The release version changes the runtime URL so existing visits
+load the fixed adapter. The progress schema remains v3.

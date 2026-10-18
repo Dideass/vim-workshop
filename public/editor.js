@@ -54,7 +54,12 @@ function forbidden(e){
 document.addEventListener('keydown',e=>{
  if(inputBlocked){e.preventDefault();e.stopImmediatePropagation();return;}
  if(e.target.id!=='input'||!ready)return;
- if(['Shift','Control','Alt','Meta','Unidentified','CapsLock','NumLock'].includes(e.key))return;
+ // Modifier/lock keys must never reach vim.wasm as standalone input. Returning
+ // alone only skips our counter; its own keydown listener still receives them.
+ // Preserve the browser/OS default so Caps Lock can keep toggling letter case.
+ if(['Shift','Control','Alt','AltGraph','Meta','Unidentified','CapsLock','NumLock','ScrollLock'].includes(e.key)){
+  e.stopImmediatePropagation();return;
+ }
  // Let people leave the canvas without trapping keyboard focus.
  if(e.key==='F6'){e.preventDefault();e.stopImmediatePropagation();send('leave');return;}
  const reason=forbidden(e);

@@ -1,6 +1,6 @@
 {
   "name": "vim-workshop",
-  "version": "0.4.3",
+  "version": "0.4.4",
   "private": true,
   "type": "module",
   "scripts": {
@@ -12,6 +12,7 @@
     "test": "vitest run",
     "test:browser": "node scripts/browser-check.mjs",
     "test:practice": "node scripts/practice-check.mjs",
+    "test:lock-keys": "node scripts/lock-keys-check.mjs",
     "test:course": "node scripts/course-check.mjs",
     "test:isolation": "node scripts/isolation-check.mjs",
     "test:resilience": "node scripts/resilience-check.mjs",
