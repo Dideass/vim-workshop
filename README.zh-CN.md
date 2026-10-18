@@ -5,7 +5,7 @@
 <h1 align="center">VIM WorkShop</h1>
 
 <p align="center">
-  <strong>把 Vim 用起来。</strong><br>
+  <strong>在任务中学习 Vim 。</strong><br>
   33 关 Vim 编辑挑战，取材于文学与歌词。
 </p>
 
@@ -29,21 +29,21 @@
   <img src="docs/assets/workshop.png" alt="第 20 关：在 Vim 中编辑《狂人日记》的英文片段" width="100%">
 </a>
 
-## 带着问题学 Vim
+## 通过任务学习 Vim
 
-VIM WorkShop 借鉴了 [Bandit](https://overthewire.org/wargames/bandit/) 的闯关方式：每关给你一段需要修改的文字，以及明确的目标和规则。你可以先动手尝试，遇到困难再查资料、看提示，找到合适的 Vim 操作。
+VIM WorkShop 借鉴了 [Bandit](https://overthewire.org/wargames/bandit/) 的思路：每关给你一段需要修改的文字以及明确的目标与规则。你可以先动手尝试，遇到困难再查资料、看提示，找到合适的 Vim 操作。
 
-- **真正的 Vim。** 光标移动、文本对象、寄存器和宏，都由编译为 WebAssembly 的 Vim 执行。
+- **真正的 Vim。** 光标移动、文本对象、寄存器和宏都由编译为 WebAssembly 的 Vim 执行。
 - **从入门到进阶。** 从补回一个词开始，逐步练习选区、分屏和数百行文本的编辑。
-- **解法由你探索。** 每关公开操作规则和按键上限。符合要求的解法都能通过，提示只提供其中一种。
-- **放心尝试。** 可以自由练习、重新开始，也可以逐级查看三层提示。不计时，不设生命值。
+- **解法由你探索。** 每关公开操作规则和按键上限。符合要求的解法都能通过，提示只提供一种可行解法。
+- **大胆尝试。** 可以自由练习、重新开始，也可以逐级查看三层提示。不计时，不设生命值。
 
 **25 段文学选文 · 8 段歌词 · 中英双语界面**  
 编辑材料始终为英文。作者、版本和来源可在每关的「文本出处」（Behind the text）中查看。
 
 ## 开始使用
 
-[**在线体验**](https://dideass.github.io/vim-workshop/) · 桌面浏览器 + 实体键盘。
+[**在线体验**](https://dideass.github.io/vim-workshop/) 
 
 无需注册或安装。进度保存在浏览器中，下次打开可以继续；也支持导出、导入 JSON 备份，方便更换设备。
 
