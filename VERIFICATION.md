@@ -32,8 +32,18 @@ Explore, quit recovery, draft restoration, import/export and narrow layout.
 The site is served under `/between-lines/` without COOP/COEP response headers.
 The shipped same-origin isolation worker enables the editor. A separate recovery
 case uses controlled headers to inject a failed runtime request, then retries it.
-This verifies static project-subpath behavior locally; no public GitHub deployment
-is claimed without an actual target repository.
+The public deployment at https://dideass.github.io/vim-workshop/ was verified on
+2026-10-18 in fresh Chrome and Edge profiles. Both browsers started real Vim with
+cross-origin isolation, completed level 1, advanced to level 2, and restored the
+saved draft, completion and language after a full browser restart. The physical
+`%d%` alternative also passed level 8 on the deployed 0.4.3 runtime. The Pages
+workflow's verification and deployment jobs both passed.
+
+A separate comparison used identical 1920×1080 viewports at 100% zoom for local
+development and the public deployment. Both produced the same element bounds:
+60px navigation, 222×30px wordmark, 25px heading font, and a 1824×728px editor.
+No deployment-specific UI scaling was found. When comparing screenshots, keep
+the browser's per-site zoom equal between localhost and GitHub Pages.
 
 Official matching Vim 8.2.0055 English help (139 local files and tags) is now
 bundled; the npm runtime did not include help text. The help-window and
