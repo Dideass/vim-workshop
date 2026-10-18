@@ -1,0 +1,6 @@
+node_modules/
+dist/
+test-results/
+*.tsbuildinfo
+public/vendor/
+public/coi-serviceworker.js

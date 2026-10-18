@@ -1,0 +1,76 @@
+name: Verify and deploy to GitHub Pages
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: pages
+  cancel-in-progress: false
+jobs:
+  verify-and-build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - run: npm test
+      - run: sudo apt-get update && sudo apt-get install -y vim-nox
+      - run: npm run test:native -- --alternatives
+      - run: node scripts/practice-parser-check.mjs
+      - run: npm run build
+      - run: npx playwright install --with-deps chromium
+      - run: npm run test:browser
+        env:
+          BROWSERS: chromium
+      - run: npm run test:practice
+        env:
+          BROWSERS: chromium
+      - run: npm run test:course
+        env:
+          BROWSERS: chromium
+      - run: npm run test:sentences
+        env:
+          BROWSERS: chromium
+      - run: npm run test:resilience
+        env:
+          BROWSERS: chromium
+      - run: npm run test:i18n
+        env:
+          BROWSERS: chromium
+      - run: npm run test:hints
+        env:
+          BROWSERS: chromium
+      - run: npm run test:completion
+        env:
+          BROWSERS: chromium
+      - run: npm run test:migration
+        env:
+          BROWSERS: chromium
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: verification-results
+          path: test-results/
+      - uses: actions/upload-pages-artifact@v4
+        with:
+          path: dist
+  deploy:
+    needs: verify-and-build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v5
+      - name: Deploy
+        id: deployment
+        uses: actions/deploy-pages@v4
