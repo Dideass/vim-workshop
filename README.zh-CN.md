@@ -1,16 +1,16 @@
 <p align="center">
-  <img src="docs/assets/readme-header.svg" alt="VIM WorkShop — 在真实 Vim 中完成 33 道文学编辑挑战" width="100%">
+  <img src="docs/assets/readme-header.svg" alt="VIM WorkShop — 33 关 Vim 编辑挑战，取材于文学与歌词" width="100%">
 </p>
 
 <h1 align="center">VIM WorkShop</h1>
 
 <p align="center">
-  <strong>在真实的 Vim 里，修好一页文字。</strong><br>
-  33 道关卡，以文学与歌词为材料，在编辑中学会编辑。
+  <strong>把 Vim 用起来。</strong><br>
+  33 关文学与歌词编辑挑战，从补回一个词，到处理上千行文本。
 </p>
 
 <p align="center">
-  <a href="https://dideass.github.io/vim-workshop/"><strong>进入工坊 ↗</strong></a>
+  <a href="https://dideass.github.io/vim-workshop/"><strong>开始挑战</strong></a>
   &nbsp; · &nbsp; <a href="README.md">English</a> / <strong>简体中文</strong>
   &nbsp; · &nbsp; <a href="docs/DEVELOPMENT.md">开发与部署</a>
 </p>
@@ -26,45 +26,36 @@
 <br>
 
 <a href="https://dideass.github.io/vim-workshop/">
-  <img src="docs/assets/level-cleared.png" alt="修复《狂人日记》的片段，获得像素风通关印章" width="100%">
+  <img src="docs/assets/workshop.png" alt="第 20 关：在 Vim 中编辑《狂人日记》的英文片段" width="100%">
 </a>
 
-## 先有问题，再找工具
+## 带着问题学 Vim
 
-你会拿到一段损坏的文字、一个目标和几条规则，然后自己找到修复的方法。
-受 [Bandit](https://overthewire.org/wargames/bandit/) 启发，这里先给你使用命令的理由，让你带着问题查资料、做尝试。
+VIM WorkShop 借鉴了 [Bandit](https://overthewire.org/wargames/bandit/) 的闯关方式：每关给你一段需要修改的文字，以及明确的目标和规则。你可以先动手尝试，遇到困难再查资料、看提示，找到合适的 Vim 操作。
 
-- **真实的 Vim。** 移动、文本对象、寄存器、宏和 `:help`，都在编译为 WebAssembly 的 Vim 中运行。
-- **逐渐展开的挑战。** 从补一个词开始，进入选区、分屏与数百行文本的编辑。最后十关更进一步，博尔赫斯留在终章。
-- **自己找到路径。** 规则与按键预算公开，符合要求的其他解法同样有效；提示只提供一种走法。
-- **放心试错。** 自由探索、干净重试，或逐级打开三层提示。不计时，没有生命值；修好这一页，就收到一枚像素通关印章。
+- **真正的 Vim。** 浏览器里运行的是编译为 WebAssembly 的 Vim，支持文本对象、寄存器、宏和 `:help`。在这里练习的操作，也能用在平时的 Vim 中。
+- **从入门到进阶。** 从插入、删除和移动光标开始，逐步练习选区、分屏和批量编辑。文本越来越长，任务也越来越丰富；最后一关留给博尔赫斯。
+- **目标清楚，解法开放。** 每关列明任务、操作要求和按键上限。满足规则即可通关，无需照着参考答案输入。
+- **随时尝试，随时重来。** 可以自由练习、重新开始，也可以逐级查看提示。不计时，不设生命值，通关时会有像素风的庆祝反馈。
 
-**25 段文学文本 · 8 段歌词间奏 · 中英双语界面**  
-待编辑的正文始终为英文，作者、版本与出处收录在「文本出处」中。
+**25 段文学选文 · 8 段歌词 · 中英双语界面**  
+编辑材料始终为英文。作者、版本和来源可在每关的「文本出处」（Behind the text）中查看。
 
-<details>
-<summary><strong>01 / 从一个缺失的词开始</strong></summary>
-<br>
-<img src="docs/assets/first-page.png" alt="第一关：补回一个缺失的词，不限按键次数" width="100%">
-</details>
+## 开始使用
 
-<br>
+[**在线体验**](https://dideass.github.io/vim-workshop/) · 桌面浏览器 + 实体键盘。
 
-## 打开这一页
+无需注册或安装。进度保存在浏览器中，下次打开可以继续；也支持导出、导入 JSON 备份，方便更换设备。
 
-[**在浏览器中开始 →**](https://dideass.github.io/vim-workshop/) · 请使用桌面浏览器与实体键盘。
-
-无需账号或安装。进度保存在当前浏览器，也可以导出 JSON 备份，带到另一台设备。
-
-本地运行推荐 Node.js 24：
+如需本地运行，推荐使用 Node.js 24：
 
 ```sh
 npm ci
 npm run dev
 ```
 
-[开发与部署（English）](docs/DEVELOPMENT.md) · [课程与出处](docs/COURSE.md) · [验证记录](VERIFICATION.md)
+[开发与部署（英文）](docs/DEVELOPMENT.md) · [关卡与文本来源](docs/COURSE.md) · [测试记录](VERIFICATION.md)
 
 ---
 
-<sub>应用代码采用 <a href="LICENSE">MIT</a> 许可。文学选段与运行时资源分别保留其相应权利，详见<a href="THIRD_PARTY_NOTICES.md">来源与许可说明</a>。</sub>
+<sub>项目代码采用 <a href="LICENSE">MIT</a> 许可证。文学、歌词及第三方运行组件的版权与许可另见<a href="THIRD_PARTY_NOTICES.md">相关说明</a>。</sub>

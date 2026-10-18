@@ -10,7 +10,7 @@
 </p>
 
 <p align="center">
-  <a href="https://dideass.github.io/vim-workshop/"><strong>Enter the workshop ↗</strong></a>
+  <a href="https://dideass.github.io/vim-workshop/"><strong>Enter the workshop</strong></a>
   &nbsp; · &nbsp; <strong>English</strong> / <a href="README.zh-CN.md">简体中文</a>
   &nbsp; · &nbsp; <a href="docs/DEVELOPMENT.md">Build & deploy</a>
 </p>
@@ -26,7 +26,7 @@
 <br>
 
 <a href="https://dideass.github.io/vim-workshop/">
-  <img src="docs/assets/level-cleared.png" alt="A repaired passage from A Madman’s Diary, with the pixel level-cleared stamp" width="100%">
+  <img src="docs/assets/workshop.png" alt="Level 20: editing a passage from A Madman’s Diary in Vim" width="100%">
 </a>
 
 ## A task before a technique
@@ -41,14 +41,6 @@ Inspired by [Bandit](https://overthewire.org/wargames/bandit/), the workshop giv
 
 **25 literary passages · 8 lyric interludes · English / 中文 interface**  
 The editing texts stay in English. Authors, editions and sources live in *Behind the text*.
-
-<details>
-<summary><strong>01 / Start with one missing word</strong></summary>
-<br>
-<img src="docs/assets/first-page.png" alt="The first level: restore one missing word, with no key budget" width="100%">
-</details>
-
-<br>
 
 ## Open a page
 
