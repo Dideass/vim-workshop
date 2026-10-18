@@ -64,10 +64,17 @@ try{for(const channel of process.env.BROWSERS?.split(',')||['chrome','msedge']){
      assert.equal(await dialog.locator('.hint code').innerText(),level.solutions[0]);
      assert.equal(await dialog.locator('.hint > p:not(.assisted-note)').count(),0,'No duplicate or stale route prose.');
      await dialog.locator('.hint-done').click();
+     await dialog.waitFor({state:'hidden'});
     }
     await page.locator('#language').selectOption('en');
-    await input().focus();
-    await page.waitForFunction(()=>document.activeElement?.tagName==='IFRAME'&&document.querySelector('iframe').contentDocument.activeElement?.id==='input');
+    // Native dialog focus restoration can finish after the close click resolves.
+    // Reacquire focus while polling instead of waiting forever after one focus().
+    await page.waitForFunction(()=>{
+     const frame=document.querySelector('iframe');
+     if(document.querySelector('.hint-dialog').open)return false;
+     frame?.contentDocument?.getElementById('input')?.focus();
+     return document.activeElement===frame&&frame.contentDocument.activeElement?.id==='input';
+    });
     await send(sequence);
     await page.waitForFunction(expected=>window.testSnapshot?.text===expected&&window.testSnapshot.saved===expected&&!window.testSnapshot.modified,level.expected,{timeout:10000}).catch(async error=>{
      const snapshot=await page.evaluate(()=>window.testSnapshot);console.error(channel,level.id,index,{mode:snapshot.mode,actions:snapshot.actions,actualStart:snapshot.text.slice(0,100),expectedStart:level.expected.slice(0,100)});throw error;
