@@ -18,6 +18,7 @@ uses Vim 9.1. No keybinding emulator or silent fallback is used.
 | Modal hint navigation, input lock and EOF tildes | Passed in both browsers | `npm run test:hints` |
 | Persistent 33-step completion card, rainbow finale, no final variant | Passed in both browsers | `npm run test:completion` |
 | Old-course reset, retained language and actual new-course long draft reload | Passed in both browsers; draft longer than 50,000 characters | `npm run test:migration` |
+| First-visit isolation when the upstream reload callback is missed | Passed in Chrome and Edge, no manual reload | `npm run test:isolation` |
 | Clipboard, storage failure, isolation updates and worker recovery | Passed in both browsers | `npm run test:resilience` |
 | Desktop dimensions and mobile reading layout | Passed at 1366×768, 1920×1080 and 390×844 | `node scripts/layout-check.mjs` |
 
@@ -116,3 +117,8 @@ Operator-pending/Visual `%`, motion-based `<`, window aliases, Ex address and
 modifier prefixes, arbitrary substitute delimiters and :g! are also recognized.
 No f[ prefix or complete reference key sequence is required. Versioned iframe
 runtime imports keep the deployed editor and recorder on the parent's release.
+
+The Pages bootstrap now waits for service-worker control before starting Vim. A
+controllerchange listener recovers a missed registration reload callback, with a
+session guard against reload loops. This avoids starting the editor before
+SharedArrayBuffer is available on a first visit.

@@ -39,6 +39,9 @@ jobs:
       - run: npm run test:sentences
         env:
           BROWSERS: chromium
+      - run: npm run test:isolation
+        env:
+          BROWSERS: chromium
       - run: npm run test:resilience
         env:
           BROWSERS: chromium

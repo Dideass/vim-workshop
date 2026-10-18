@@ -12,7 +12,11 @@ try{
    const errors=[];page.on('pageerror',e=>errors.push(String(e)));
    await page.addInitScript(()=>window.addEventListener('message',e=>{if(e.data?.channel==='between-lines'&&e.data.type==='snapshot'){window.testSnapshot=e.data.snapshot;window.testToken=e.data.token;}}));
    await page.goto('http://127.0.0.1:4178/between-lines/');
-   await page.waitForFunction(()=>document.querySelector('.mode')?.textContent==='NORMAL');
+   await page.waitForFunction(()=>document.querySelector('.mode')?.textContent==='NORMAL').catch(async error=>{
+    await page.screenshot({path:`test-results/${channel}-i18n-startup-failure.png`,fullPage:true});
+    console.error('STARTUP',await page.evaluate(()=>({isolated:crossOriginIsolated,controller:navigator.serviceWorker.controller?.scriptURL,body:document.body.innerText})),errors);
+    throw error;
+   });
    const input=()=>page.frameLocator('iframe').locator('#input');
    assert.equal(await page.title(),'VIM WorkShop');
    assert.equal(await page.getByRole('link',{name:'VIM WorkShop'}).isVisible(),true);
