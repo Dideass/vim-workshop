@@ -15,6 +15,14 @@
   &nbsp; · &nbsp; <a href="docs/DEVELOPMENT.md">开发与部署</a>
 </p>
 
+<p align="center">
+  <a href="https://github.com/Dideass/vim-workshop/actions/workflows/pages.yml"><img src="https://img.shields.io/github/actions/workflow/status/Dideass/vim-workshop/pages.yml?branch=main&amp;style=flat-square&amp;label=CI&amp;labelColor=3b3b3b" alt="CI status"></a>
+  <a href="package.json"><img src="https://img.shields.io/github/package-json/v/Dideass/vim-workshop?style=flat-square&amp;label=version&amp;color=8b9bb1&amp;labelColor=3b3b3b" alt="Project version"></a>
+  <a href="package.json"><img src="https://img.shields.io/badge/node-%3E%3D22.12-8b9bb1?style=flat-square&amp;logo=node.js&amp;logoColor=dedede&amp;labelColor=3b3b3b" alt="Node.js >=22.12"></a>
+  <a href="LICENSE"><img src="https://img.shields.io/github/license/Dideass/vim-workshop?style=flat-square&amp;color=8b9bb1&amp;labelColor=3b3b3b" alt="MIT license"></a>
+  <a href="THIRD_PARTY_NOTICES.md"><img src="https://img.shields.io/badge/Vim-8.2.0055-8b9bb1?style=flat-square&amp;logo=vim&amp;logoColor=dedede&amp;labelColor=3b3b3b" alt="Real Vim 8.2.0055"></a>
+</p>
+
 <br>
 
 <a href="https://dideass.github.io/vim-workshop/">
