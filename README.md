@@ -10,7 +10,7 @@
 </p>
 
 <p align="center">
-  <a href="https://dideass.github.io/vim-workshop/"><strong>Enter the workshop</strong></a>
+  <a href="https://dideass.github.io/vim-workshop/"><strong>Enter the workshop →</strong></a>
   &nbsp; · &nbsp; <strong>English</strong> / <a href="README.zh-CN.md">简体中文</a>
   &nbsp; · &nbsp; <a href="docs/DEVELOPMENT.md">Build & deploy</a>
 </p>
@@ -44,7 +44,7 @@ The editing texts stay in English. Authors, editions and sources live in *Behind
 
 ## Open a page
 
-[**Play in your browser →**](https://dideass.github.io/vim-workshop/) · Desktop browser + physical keyboard.
+[**Play in your browser →**](https://dideass.github.io/vim-workshop/)
 
 No account or installation. Progress stays in your browser; export a JSON backup to take it elsewhere.
 
